@@ -46,6 +46,10 @@ function englishNumber(n) {
     return english
 }
 
+function sentenceCase(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 // Number Input with count buttons
 // This fulfulls the "counting" requirement
 //=============================================================================
@@ -53,7 +57,7 @@ let numberInput = document.getElementById('number-input')
 let numberInputLabel = document.getElementById('number-input-label')
 
 function updateInputDisplay() {
-    numberInputLabel.innerHTML = englishNumber(numberInput.value)
+    numberInputLabel.innerHTML = sentenceCase(englishNumber(numberInput.value))
 }
 
 function addToCount(amount) {
@@ -87,7 +91,7 @@ function debounceUpdateRangeDisplay() {
     clearTimeout(debounceTimeout)
     debounceTimeout = setTimeout(() => {
         numberRangeValue.innerHTML = numberRange.value
-        numberRangeLabel.innerHTML = englishNumber(numberRange.value)
+        numberRangeLabel.innerHTML = sentenceCase(englishNumber(numberRange.value))
     }, 200)
 }
 
